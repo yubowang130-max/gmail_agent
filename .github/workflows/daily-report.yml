@@ -46,6 +46,8 @@ jobs:
           EOF
 
           sed -i 's/\r$//' .env client_secret.json gmail_token.json
+          # GitHub-hosted runner must not use local machine proxy settings.
+          sed -i '/^HTTP_PROXY=/d;/^HTTPS_PROXY=/d;/^ALL_PROXY=/d' .env
 
       - name: Run report
         run: python src/main.py
