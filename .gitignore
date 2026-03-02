@@ -1,0 +1,16 @@
+﻿# Secrets
+.env
+client_secret.json
+gmail_token.json
+
+# Runtime
+logs/
+*.log
+
+# State
+src/storage/state.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/

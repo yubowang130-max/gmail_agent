@@ -1,0 +1,43 @@
+﻿include_senders: []
+exclude_senders:
+  - "noreply@"
+  - "no-reply@"
+
+include_subject_keywords: []
+exclude_subject_keywords:
+  - "验证码"
+  - "广告"
+
+priority_subject_keywords:
+  - "会议"
+  - "deadline"
+  - "urgent"
+  - "action required"
+
+ad_ai_keywords:
+  - "ai"
+  - "人工智能"
+  - "machine learning"
+  - "llm"
+  - "gpt"
+  - "python"
+  - "programming"
+  - "coding"
+  - "开发"
+  - "github"
+  - "open source"
+
+sales_keywords:
+  - "sale"
+  - "discount"
+  - "coupon"
+  - "promo"
+  - "promotion"
+  - "limited time"
+  - "立即购买"
+  - "优惠"
+  - "折扣"
+  - "特价"
+  - "立减"
+
+max_body_preview_chars: 500
