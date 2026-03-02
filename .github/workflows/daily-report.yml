@@ -30,6 +30,13 @@ jobs:
           ${{ secrets.ENV_FILE }}
           EOF
 
+          # Force Linux runner paths to avoid Windows absolute paths from ENV_FILE.
+          {
+            echo ""
+            echo "GMAIL_CLIENT_SECRET_PATH=./client_secret.json"
+            echo "GMAIL_TOKEN_PATH=./gmail_token.json"
+          } >> .env
+
           cat > client_secret.json << 'EOF'
           ${{ secrets.GMAIL_CLIENT_SECRET_JSON }}
           EOF
@@ -37,6 +44,8 @@ jobs:
           cat > gmail_token.json << 'EOF'
           ${{ secrets.GMAIL_TOKEN_JSON }}
           EOF
+
+          sed -i 's/\r$//' .env client_secret.json gmail_token.json
 
       - name: Run report
         run: python src/main.py
