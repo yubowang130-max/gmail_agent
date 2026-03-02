@@ -14,7 +14,9 @@ from mail.imap_client import RawMail
 
 
 class GmailApiClient:
-    SCOPES = ["https://www.googleapis.com/auth/gmail.readonly"]
+    # Use full Gmail scope to stay compatible with existing OAuth tokens
+    # generated during local setup and avoid invalid_scope on refresh.
+    SCOPES = ["https://mail.google.com/"]
 
     def __init__(self, user_email: str, client_secret_path: str, token_path: str) -> None:
         self.user_email = user_email
